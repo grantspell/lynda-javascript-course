@@ -10,7 +10,7 @@ server.set('view engine', 'ejs');
 
 // ROOT ROUTE
 server.get('/', (req, res) => {
-    res.send('Hello Express');
+    res.render('index');
 });
 
 // API ROUTE
