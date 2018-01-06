@@ -1,15 +1,14 @@
-import http from 'http';
+import config from './config';
 
-const server = http.createServer();
+import express from 'express';
+const server = express();
 
-server.listen(8080);
-
-server.on('request', (req, res) => {
-    res.write('Hello HTTP!\n');
-    setTimeout(() => {
-        res.write('I can stream!\n');
-        res.end();
-    }, 3000);
+server.get('/', (req, res) => {
+    res.send('Hello Express');
 });
 
-server.listen(8080);
+server.use(express.static('public'));
+
+server.listen(config.port, () => {
+    console.info('Express listening on port ', config.port);
+});
