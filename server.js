@@ -11,13 +11,12 @@ server.set('view engine', 'ejs');
 // ROOT ROUTE
 server.get('/', (req, res) => {
     res.render('index', {
-        content: 'Hello Express and EJS'
+        content: '...'
     });
 });
 
 // API ROUTE
 server.use('/api', apiRouter);
-
 // EXPRESS STATIC MIDDLEWARE
 server.use(express.static('public'));
 
